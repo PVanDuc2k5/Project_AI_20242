@@ -84,6 +84,15 @@
         .btn-secondary:hover {
             background: #cfdef3;
             color: #1e40af;
+        }  
+        #speedInput {
+            border-radius: 8px;
+            border: 1px solid #b6d0f7;
+            font-size: 1rem;
+            padding: 8px;
+            margin-bottom: 12px;
+            width: 100%;
+            box-sizing: border-box;
         }
         #distance-time-result {
             margin-top: 14px;
@@ -114,6 +123,8 @@
         </select>
         <button id="toggleNodes" class="btn btn-primary btn-block">Toggle Nodes</button>
         <button id="togglePaths" class="btn btn-secondary btn-block">Toggle Paths</button>
+        <label for="speedInput">Nhập vận tốc (m/s):</label>
+        <input type="number" id="speedInput" class="form-control mb-3" placeholder="Nhập vận tốc (m/s)" value="1.39"> 
         <div id="distance-time-result" style="margin-top:10px; font-size:14px; color:#333;"></div>
     </div>
 
@@ -236,7 +247,7 @@
                     data: JSON.stringify({
                         start: click_coords[0],
                         end: click_coords[1],
-                        speed: 1.39 // m/s, bạn có thể cho người dùng nhập nếu muốn
+                        speed: speed // m/s, bạn có thể cho người dùng nhập nếu muốn
                     }),
                     success: function(response) {
                         var distance = response.distance_m.toFixed(1);
